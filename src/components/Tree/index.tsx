@@ -9,7 +9,7 @@ type TreeProps = {
 export const Tree = ({ treeData, checked }: TreeProps) => {
 
   return (
-    <div>
+    <div data-testid='tree-container' >
       {treeData.map((treeItem: TreeDataProps) => {
         const children = Object.values(treeItem.children);
 

@@ -6,12 +6,13 @@ import { TreeDataProps } from '../../App';
 type TreeBranchProps = {
   treeItem: TreeDataProps;
   children: Array<TreeDataProps>;
-  checked: boolean | undefined;
+  checked?: boolean | undefined;
 }
 
 export const TreeBranch = ({ treeItem, children, checked }: TreeBranchProps) => {
   const [branches, setBranches] = useState(false);
   const [boxChecked, setBoxChecked] = useState(Boolean);
+  const treeBranch = Object.values(children);
 
   useEffect(() => {
     let visibleBranches: string[] = JSON.parse(localStorage.getItem("branches") || "[]") || [];
@@ -64,7 +65,7 @@ export const TreeBranch = ({ treeItem, children, checked }: TreeBranchProps) => 
           defaultChecked={boxChecked}
           onClick={() => setBoxChecked(!boxChecked)}
         />
-        <label>
+        <label id={treeItem.name} >
           <input
             type='checkbox'
             checked={boxChecked}
@@ -74,14 +75,18 @@ export const TreeBranch = ({ treeItem, children, checked }: TreeBranchProps) => 
           {treeItem.name}
         </label>
 
-        {children.length > 0 ? (
-          <button className={branches ? 'show-branches' : ''} onClick={() => { setBranches(!branches) }} />
+        {treeBranch.length > 0 ? (
+          <button
+            className={branches ? 'show-branches' : ''}
+            onClick={() => { setBranches(!branches) }}
+            data-testid='show-branches'
+          />
         ) : null}
       </S.CheckboxContainer>
 
       {branches ? (
         <div className='space-left'>
-          <Tree treeData={children} checked={boxChecked} />
+          <Tree treeData={treeBranch} checked={boxChecked} />
         </div>
       ) : null}
     </S.Container>

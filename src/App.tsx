@@ -6,7 +6,7 @@ export type TreeDataProps = {
   id: string;
   name: string;
   children: Array<TreeDataProps>
-  level: number;
+  level?: number;
 }
 
 export const App = () => {

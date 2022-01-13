@@ -12,7 +12,8 @@ Executa a aplicação em modo de desenvolvimento.
 Abra http://localhost:3000 para visualizá-la no navegador.
 
 ### `yarn test`
-Infelizmente pelo avançado do tempo, não foi possível a implementação dos testes unitários.
+Executa os testes da aplicação.
+Para executar um teste específico: yarn test caminhoDoArquivo.
 
 ### `yarn build`
 
