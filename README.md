@@ -1,5 +1,7 @@
 # Prova frontend Hi Platform
 
+Veja a aplicação em produção: [Link da aplicação]https://hi-platform-challenge-r7r6hbb4x-escanor-7.vercel.app/
+
 ## Instruções da aplicação
 
 Na pasta do projeto, execute:
